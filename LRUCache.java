@@ -29,7 +29,7 @@ class LRUCache {
         if (node == null) {
             return -1;
         }
-        // move the accessed node to the head;
+        
         moveToHead(node);
         return node.value;
     }
@@ -47,20 +47,20 @@ class LRUCache {
             ++size;
 
             if (size > capacity) {
-                // pop the tail
+                // pop 
                 DLinkedNode tail = popTail();
                 cache.remove(tail.key);
                 --size;
             }
         } else {
-            // update the value.
+            // update
             node.value = value;
             moveToHead(node);
         }
     }
 
     private void addNode(DLinkedNode node) {
-        // add node right after head
+        // add node 
         node.prev = head;
         node.next = head.next;
 
@@ -69,7 +69,7 @@ class LRUCache {
     }
 
     private void removeNode(DLinkedNode node) {
-        // remove an existing node from the linked list
+        // remove an existing node from linked list
         DLinkedNode prev = node.prev;
         DLinkedNode next = node.next;
 
